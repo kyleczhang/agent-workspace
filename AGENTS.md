@@ -13,26 +13,17 @@ The everyday look is light on every tool. `themes/herdr-ink/` is an optional dar
 ## Commands
 
 ```sh
-./install.sh [tool...]                                         # install from this checkout
-HERDR_CONFIG_PATH=./herdr/config.toml herdr config check      # validate the Herdr config without installing it
-ghostty +validate-config --config-file=./ghostty/config.ghostty   # validate the Ghostty config
-herdr --default-config                                         # every Herdr option and its default
-ghostty +show-config --default --docs                          # every Ghostty option and its docs
+./install.sh [tool...]      # install from this checkout (default: all default tools)
 ```
 
-Run the matching validation after any edit to a config. `herdr/install.sh` already runs `herdr config check` and aborts before touching the real config if it fails.
+## Per-tool guidance
 
-## ghostty/
+Each tool folder has its own `AGENTS.md` (with a `CLAUDE.md` pointer) covering its commands, install target, and config conventions. Read it before editing that folder:
 
-`config.ghostty` installs to `${XDG_CONFIG_HOME:-~/.config}/ghostty/config`; `install.sh` also copies `icons/ghostty-light.icns` to `Ghostty.icns` (referenced by `macos-custom-icon`) and `shaders/cursor_smear.glsl` (referenced by `custom-shader`, path relative to the config dir). The other files in `icons/` are alternatives, not installed. The theme follows macOS appearance (Ayu Light / Ayu Mirage); `cursor-color` was picked to read on both, and the cursor-smear shader takes its color from it.
+- `ghostty/AGENTS.md`
+- `herdr/AGENTS.md`
 
-## herdr/
-
-`config.toml` installs to `${HERDR_CONFIG_PATH:-${XDG_CONFIG_HOME:-~/.config}/herdr/config.toml}` and `install.sh` hot-reloads a running server. It deliberately lists **only non-default values** — do not add an option just to restate its default, and check `herdr --default-config` before adding one.
-
-The `[keys]` block is organized by sidebar area rather than by action, and that grouping is load-bearing: each area owns one modifier, and number jumps and `n`/`p` cycling within an area share it — tabs use `prefix` plain, spaces use `prefix+shift`, agents use `prefix+alt`. A new binding belongs to whichever area's modifier it extends (e.g. `new_workspace = "prefix+shift+c"` parallels the default `new_tab = "prefix+c"`). Area groups also hold that area's non-navigation bindings — `rename_tab = "prefix+r"` sits under `# Tabs` because `prefix` plain is the tabs modifier — and `""` unbinds an action outright, which is how `resize_mode = ""` frees `prefix+r`.
-
-Sidebar `rows` are arrays of lines; each line is an array of cells, where a cell is either a bare token string (`"state_icon"`, `"tab"`, `"agent"`) or an inline table adding style (`{ token = "branch", fg = "#8839ef" }`). Colors are hard-coded hex values matched to the `catppuccin-latte` theme set in `[theme]`, so changing the theme means revisiting them.
+When adding a tool folder, give it the same pair.
 
 ## claude/, codex/
 
