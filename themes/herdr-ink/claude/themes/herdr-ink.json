@@ -1,0 +1,9 @@
+{
+  "name": "herdr ink",
+  "base": "dark",
+  "overrides": {
+    "text": "#d6d4da",
+    "userMessageBackground": "#303036",
+    "userMessageBackgroundHover": "#3a3a42"
+  }
+}

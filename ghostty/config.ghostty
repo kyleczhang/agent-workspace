@@ -1,0 +1,106 @@
+# Show all available options: ghostty +show-config --default --docs
+# List built-in themes:       ghostty +list-themes
+# Reload config after editing with Cmd+Shift+,
+
+# === Font ===
+font-family = "JetBrainsMono Nerd Font"
+font-size = 22
+
+# Ligatures and font features.
+font-feature = calt
+font-feature = liga
+
+# Make text a bit "thicker".
+font-thicken = true
+
+# Fine-tune line height.
+adjust-cell-height = 10%
+
+# === Theme / Colors ===
+# Follow the macOS light/dark mode automatically.
+theme = light:Ayu Light,dark:Ayu Mirage
+
+# Render bold text in the bright color variant.
+bold-is-bright = true
+
+# === Window / Appearance ===
+# Padding so text doesn't hug the edges.
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
+# Background transparency and blur.
+background-opacity = 0.95
+background-blur = true
+
+# Titlebar style: transparent / tabs / native / hidden.
+# macos-titlebar-style = transparent
+
+# Dim unfocused splits to highlight the active one.
+unfocused-split-opacity = 0.7
+
+# Use the Display P3 wide color gamut (macOS).
+window-colorspace = display-p3
+
+# Custom dock/app-switcher icon (installed by install.sh).
+macos-icon = custom
+macos-custom-icon = ~/.config/ghostty/Ghostty.icns
+
+# Don't restore the previous window/tab state on launch.
+window-save-state = never
+
+# === Cursor ===
+cursor-style = block
+cursor-style-blink = false
+# Ayu's stock #ffaa33 washes out against the light theme's near-white
+# background. #a37acc is palette 13 in both Ayu themes, and reads on either.
+cursor-color = #a37acc
+# Auto-hide the mouse pointer while typing.
+# mouse-hide-while-typing = true
+
+# Cursor trail: an animated "smear" that follows cursor jumps. It takes its
+# color from `cursor-color` above. Path is relative to this config's directory.
+custom-shader = shaders/cursor_smear.glsl
+# Required for the trail to animate (redraw every frame, not just on updates).
+custom-shader-animation = true
+
+# === Scrolling / History ===
+# Scrollback buffer size (bytes).
+scrollback-limit = 25000000
+
+# === Keyboard (macOS) ===
+# Treat Option as Alt so Alt key combos work in the shell/editor.
+macos-option-as-alt = true
+
+# === Shell Integration ===
+# Auto-detect the shell and inject integration.
+shell-integration = detect
+# no-cursor: keep the configured block cursor.
+shell-integration-features = no-cursor,sudo,title
+
+# === Clipboard / Mouse ===
+# Allow programs to read from and write to the clipboard.
+clipboard-read = allow
+clipboard-write = allow
+
+# === Behavior / Quit Confirmation ===
+# Start new terminals in ~/Desktop.
+working-directory = ~/Desktop
+# Confirm close only when a process is still running.
+confirm-close-surface = true
+# Quit after the last window is closed.
+quit-after-last-window-closed = true
+# Make URLs clickable (Cmd+click).
+link-url = true
+
+# === Keybindings ===
+# Splits.
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+# Move focus between splits.
+keybind = cmd+ctrl+i=goto_split:up
+keybind = cmd+ctrl+j=goto_split:left
+keybind = cmd+ctrl+k=goto_split:down
+keybind = cmd+ctrl+l=goto_split:right
+# Quickly reload the config.
+keybind = cmd+shift+comma=reload_config

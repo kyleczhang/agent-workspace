@@ -1,0 +1,61 @@
+# ~/.config/herdr/config.toml
+# Only non-default values are listed. Full reference: `herdr --default-config`.
+
+# Skip the first-run onboarding screen.
+onboarding = false
+
+[keys]
+# One modifier per sidebar area; number jumps and n/p cycling share it.
+#   tabs     prefix + (1..9 | n | p)          (defaults, plain)
+#   spaces   prefix + shift + (1..9 | n | p)
+#   agents   prefix + alt   + (1..9 | n | p)   (number jumps by top-to-bottom position)
+
+# Tabs
+rename_tab  = "prefix+r"                   # moved off prefix+shift+t; renamed constantly
+resize_mode = ""                           # unbound on purpose — never used, frees prefix+r
+
+# Spaces
+new_workspace      = "prefix+shift+c"      # create (parallels new_tab = prefix+c)
+switch_workspace   = "prefix+shift+1..9"   # jump to space N
+next_workspace     = "prefix+shift+n"
+previous_workspace = "prefix+shift+p"
+
+# Agents
+focus_agent    = "prefix+alt+1..9"         # focus agent N (top-to-bottom)
+next_agent     = "prefix+alt+n"
+previous_agent = "prefix+alt+p"
+
+[theme]
+name = "catppuccin-latte"
+
+[ui]
+# Fixed "herdr · " prefix lets the Alfred "herdr" workflow find and focus an existing herdr window.
+window_title = "herdr · {workspace}"
+
+# Show detected agent labels in split-pane borders when no manual name is set.
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+# Route background agent notifications (blocked / done) to the terminal.
+delivery = "terminal"
+
+[ui.sound]
+# Stay silent on background agent state changes.
+enabled = false
+
+# --- Sidebar -----------------------------------------------------------------
+# Space rows, styled for the light catppuccin-latte palette.
+# Line 1: state icon + workspace name (bold).  Line 2: branch + git status.
+[ui.sidebar.spaces]
+rows = [
+  ["state_icon", { token = "workspace", bold = true }],
+  [{ token = "branch", fg = "#8839ef" }, { token = "git_status", fg = "#d20f39", dim = true }],
+]
+
+# Agent rows, same two-line shape as the space rows above.
+# Line 1: state icon + workspace name (bold) + tab.  Line 2: state text + agent name.
+[ui.sidebar.agents]
+rows = [
+  ["state_icon", { token = "workspace", bold = true }, "tab"],
+  ["state_text", "agent"],
+]

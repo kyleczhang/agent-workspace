@@ -1,0 +1,22 @@
+# Replaces the [theme] block of config.toml.
+[theme]
+name = "catppuccin"
+
+# Recolor Catppuccin Mocha to herdr.dev's ink palette: neutral graphite
+# surfaces with mauve as the accent. sidebar_bg stays Reset, so the sidebar
+# shows Ghostty's #17171a background.
+[theme.custom]
+accent        = "#cba6f7"
+panel_bg      = "#1e1e22"
+active_row_bg = "#26262b"
+selection_bg  = "#35353d"
+surface0      = "#26262b"
+surface1      = "#35353d"
+surface_dim   = "#202024"
+overlay0      = "#908f96"
+overlay1      = "#b0afb6"
+text          = "#eae8ee"
+subtext0      = "#cdccd2"
+
+# Also change in [ui.sidebar.spaces] rows:
+#   [{ token = "branch", fg = "#cba6f7" }, { token = "git_status", dim = true }],

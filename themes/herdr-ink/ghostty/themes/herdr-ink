@@ -1,0 +1,26 @@
+# herdr.dev "ink" ground (dark): neutral graphite page colors with the
+# Catppuccin Mocha ANSI palette and a mid mauve cursor. Plain text is the
+# site's muted grey; pair with `bold-color = #eae8ee` in the main config so
+# bold text renders in bright ink, like the herdr.dev Claude Code mock.
+background = #17171a
+foreground = #b0afb6
+cursor-color = #9d6ef0
+cursor-text = #17171a
+selection-background = #35353d
+selection-foreground = #eae8ee
+palette = 0=#35353d
+palette = 1=#f38ba8
+palette = 2=#a6e3a1
+palette = 3=#f9e2af
+palette = 4=#89b4fa
+palette = 5=#f5c2e7
+palette = 6=#94e2d5
+palette = 7=#cdccd2
+palette = 8=#908f96
+palette = 9=#f37799
+palette = 10=#89d88b
+palette = 11=#ebd391
+palette = 12=#74a8fc
+palette = 13=#f2aede
+palette = 14=#6bd7ca
+palette = 15=#eae8ee
