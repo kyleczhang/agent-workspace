@@ -39,10 +39,6 @@ show_agent_labels_on_pane_borders = true
 # Route background agent notifications (blocked / done) to the terminal.
 delivery = "terminal"
 
-[ui.sound]
-# Stay silent on background agent state changes.
-enabled = false
-
 # --- Sidebar -----------------------------------------------------------------
 # Space rows, styled for the light catppuccin-latte palette.
 # Line 1: state icon + workspace name (bold).  Line 2: branch + git status.

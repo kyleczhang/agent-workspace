@@ -15,7 +15,7 @@ herdr server reload-config                               # hot-reload the instal
 
 ## Files
 
-`config.toml` installs to `${HERDR_CONFIG_PATH:-${XDG_CONFIG_HOME:-~/.config}/herdr/config.toml}`. It deliberately lists **only non-default values** — do not add an option just to restate its default, and check `herdr --default-config` before adding one. Sections in use: `[keys]`, `[theme]`, `[ui]`, `[ui.toast]`, `[ui.sound]`, `[ui.sidebar.spaces]`, `[ui.sidebar.agents]`.
+`config.toml` installs to `${HERDR_CONFIG_PATH:-${XDG_CONFIG_HOME:-~/.config}/herdr/config.toml}`. It deliberately lists **only non-default values** — do not add an option just to restate its default, and check `herdr --default-config` before adding one. Sections in use: `[keys]`, `[theme]`, `[ui]`, `[ui.toast]`, `[ui.sidebar.spaces]`, `[ui.sidebar.agents]`.
 
 ## Config notes
 
